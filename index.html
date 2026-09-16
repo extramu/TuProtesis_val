@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuProtesis - Productos Fixodent</title>
+    
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #bb54f0;
+            --primary-hover: #a332de;
+            --primary-dark: #831cb9;
+            --bg-light: #FAF3fe;
+            --text-color: #2b1f36;
+            --text-subdued: #4b4255;
+            --card-border: #ebc2ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            line-height: 1.6;
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header / Navegación */
+        header {
+            background-color: #CA89E8;
+            color: #ffffff;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--bg-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* Ajustes para el Logo de la empresa */
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            max-height: 45px; /* Controla la altura del logo */
+            width: auto;      /* Mantiene la proporción de la imagen */
+            object-fit: contain;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #f3d4ff;
+        }
+
+        /* Banner Principal (Hero) */
+        .hero {
+            background-color: #CA89E8;
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+            border-bottom: 1px solid #f6e3ff;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 1.8rem;
+            color: #f6e3ff;
+        }
+
+        .btn-whatsapp-inline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #ffffff;
+            color: var(--primary-hover);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(187, 84, 240, 0.35);
+        }
+
+        .btn-whatsapp-inline:hover {
+            background-color: #f3d4ff;
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Contenedor Principal */
+        .container {
+    max-width: 1100px;
+    margin: 2.5rem auto;
+    padding: 2rem 1.5rem;
+    flex: 1;
+    border-radius: 16px;
+     
+}
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Rejilla de Productos */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+    /* 1. Fondo 100% transparente */
+    background: transparent; 
+    
+    /* 2. Quitar el efecto de desenfoque de fondo */
+    backdrop-filter: none; 
+    -webkit-backdrop-filter: none;
+    
+    padding: 1.5rem;
+    border-radius: 12px;
+    
+    /* 3. Borde opcional (puedes quitarlo dejando 'border: none;') */
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    
+    /* 4. Quitar sombra o dejar una muy sutil para destacar el texto */
+    box-shadow: none; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(187, 84, 240, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+       .card h3, .card .product-price, .card p {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+        .product-description {
+            font-size: 0.92rem;
+            color: var(--text-subdued);
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin-bottom: 1.2rem;
+            line-height: 1.3;
+        }
+
+        .btn-whatsapp-product {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            width: 100%;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-whatsapp-product:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Estilos de la Ventana Emergente (Modal Contacto) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border: 2px solid #CA89E8;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            cursor: pointer;
+        }
+
+        .contact-info {
+            margin-top: 1.5rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+            color: var(--text-color);
+        }
+
+        .contact-item i {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+
+        /* Botón Flotante de WhatsApp */
+        .wsp-float {
+            position: fixed;
+            width: 58px;
+            height: 58px;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 4px 12px rgba(187, 84, 240, 0.45);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .wsp-float:hover {
+            background-color: var(--primary-hover);
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 3rem;
+            border-top: 4px solid var(--primary-hover);
+        }
+
+        /* Adaptabilidad Móvil */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado / Menú con Logo -->
+    <header>
+        <div class="logo">
+            <a href="#inicio">
+                <!-- Reemplaza "imagenes/1234.png" por la ruta real de tu archivo de imagen -->
+                <img src="imagenes/1234.png" alt="Logo TuProtesis">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a id="btn-contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección Inicio (Hero Banner) -->
+    <section id="inicio" class="hero">
+        <h1>Adhesivos para Prótesis Dentales Fixodent</h1>
+        <p>Somos tu aliado en el mantenimiento y cuidado de tu prótesis dental</p>
+        <a href="https://wa.me/584121630808?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20los%20productos%20Fixodent." 
+           class="btn-whatsapp-inline" 
+           target="_blank"
+           rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp"></i> Chatear por WhatsApp
+        </a>
+    </section>
+
+    <!-- Catálogo de Productos -->
+    <main class="container">
+        <section id="productos">
+            <h2 class="section-title">Nuestros Productos</h2>
+            
+            <div class="services">
+                
+                <!-- Producto 1 -->
+                <article class="card">
+                    <img src="imagenes/1001848047.jpg" alt="Fixodent Original">
+                    <div>
+                        <h3>Fixodent Original</h3>
+                        <p class="product-description">
+                            Fijación fuerte y duradera durante todo el día. Previene la entrada de restos de comida debajo de la prótesis.
+                        </p>
+                        <p class="product-price">$20 BCV</p>
+                    </div>
+                    <a href="https://wa.me/584121630808?text=Hola,%20estoy%20interesado%20en%20comprar%20Fixodent%20Original" 
+                       class="btn-whatsapp-product" 
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fa-brands fa-whatsapp"></i> Consultar / Comprar
+                    </a>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="card">
+                    <img src="imagenes/1001848049.jpg" alt="Fixodent Ultra Max Hold">
+                    <div>
+                        <h3>Fixodent Ultra Max Hold</h3>
+                        <p class="product-description">
+                            Fórmula de fijación superior de máxima fuerza sostenida. Mantiene la sujeción firme hasta el final del día.
+                        </p>
+                        <p class="product-price">$20 BCV</p>
+                    </div>
+                    <a href="https://wa.me/584121630808?text=Hola,%20estoy%20interesado%20en%20comprar%20Fixodent%20Ultra%20Max%20Hold" 
+                       class="btn-whatsapp-product" 
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fa-brands fa-whatsapp"></i> Consultar / Comprar
+                    </a>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="card">
+                    <img src="imagenes/1001848043.jpg" alt="Fixodent Plus Scope">
+                    <div>
+                        <h3>Fixodent Plus Scope</h3>
+                        <p class="product-description">
+                            Excelente fijación combinada con el aliento fresco y el sabor limpio de la tecnología del enjuague Scope.
+                        </p>
+                        <p class="product-price">$20 BCV</p>
+                    </div>
+                    <a href="https://wa.me/584121630808?text=Hola,%20estoy%20interesado%20en%20comprar%20Fixodent%20Plus%20Scope" 
+                       class="btn-whatsapp-product" 
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fa-brands fa-whatsapp"></i> Consultar / Comprar
+                    </a>
+                </article>
+
+                <!-- Producto 4 -->
+                <article class="card">
+                    <img src="imagenes/1001848053.jpg" alt="Fixodent Pure Strength">
+                    <div>
+                        <h3>Fixodent Pure Strength</h3>
+                        <p class="product-description">
+                            Fórmula libre de colorantes y sabores artificiales. Brinda una sujeción limpia, natural y confiable.
+                        </p>
+                        <p class="product-price">$20 BCV</p>
+                    </div>
+                    <a href="https://wa.me/584121630808?text=Hola,%20estoy%20interesado%20en%20comprar%20Fixodent%20Pure%20Strength" 
+                       class="btn-whatsapp-product" 
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fa-brands fa-whatsapp"></i> Consultar / Comprar
+                    </a>
+                </article>
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- Ventana Emergente (Modal Contacto) -->
+    <div id="modal-contacto" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 style="color: var(--primary-dark);">Información de Contacto</h3>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span><strong>WhatsApp:</strong> 584121630808</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span><strong>Instagram:</strong> @Tuprotesis_Val</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/584121630808?text=Hola,%20quisiera%20ordenar%20una%20fixodent." 
+       class="wsp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       title="Contactar por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 TuProtesis - Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript Integrado -->
+    <script>
+        // 1. Actualización automática de precio a Bolívares según BCV
+        const PRECIO_USD = 20; 
+
+        async function actualizarPrecioBCV() {
+            try {
+                const response = await fetch('https://ve.dolarapi.com/v1/dolares/oficial');
+                if (!response.ok) throw new Error('Respuesta de red no ok');
+                
+                const data = await response.json();
+                const tasaBCV = data.promedio;
+
+                const precioBs = (PRECIO_USD * tasaBCV).toLocaleString('es-VE', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+
+                document.querySelectorAll('.product-price').forEach(el => {
+                    el.innerHTML = `$${PRECIO_USD} BCV <br><small style="font-size: 0.85em; font-weight: normal; color: #555;">(Bs. ${precioBs})</small>`;
+                });
+            } catch (error) {
+                console.error('Error al obtener la tasa oficial:', error);
+                document.querySelectorAll('.product-price').forEach(el => {
+                    el.textContent = `$${PRECIO_USD} BCV`;
+                });
+            }
+        }
+
+        // 2. Lógica de la Ventana Emergente (Modal Contacto)
+        const modal = document.getElementById('modal-contacto');
+        const btnContacto = document.getElementById('btn-contacto');
+        const spanClose = document.querySelector('.close-modal');
+
+        btnContacto.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'flex';
+        });
+
+        spanClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', actualizarPrecioBCV);
+    </script>
+
+</body>
+</html>
