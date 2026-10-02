@@ -471,7 +471,7 @@
     <!-- Banner Principal -->
     <section id="inicio" class="hero">
         <h1>Adhesivos para Prótesis Dentales Fixodent</h1>
-        <p>Aprovecha un <strong>20% de descuento</strong> al llevar 2 o más unidades</p>
+        <p>Aprovecha un <strong>11% de descuento</strong> al llevar 2 o más unidades</p>
         <a href="https://wa.me/584121630808?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20los%20productos%20Fixodent." 
            class="btn-whatsapp-inline" 
            target="_blank"
@@ -488,14 +488,14 @@
             <div class="services">
                 
                 <!-- Producto 1 -->
-                <article class="card" data-id="fix-orig" data-nombre="Fixodent Original" data-precio="20">
+                <article class="card" data-id="fix-orig" data-nombre="Fixodent Original" data-precio="17">
                     <img src="imagenes/1001848047.jpg" alt="Fixodent Original">
                     <div>
                         <h3>Fixodent Original</h3>
                         <p class="product-description">
                             Fijación fuerte y duradera durante todo el día. Previene la entrada de restos de comida debajo de la prótesis.
                         </p>
-                        <p class="product-price">$20 BCV</p>
+                        <p class="product-price">$17 BCV</p>
                     </div>
                     <button class="btn-whatsapp-product btn-agregar-carrito">
                         <i class="fa-solid fa-cart-plus"></i> Añadir al carrito
@@ -503,14 +503,14 @@
                 </article>
 
                 <!-- Producto 2 -->
-                <article class="card" data-id="fix-max" data-nombre="Fixodent Ultra Max Hold" data-precio="20">
+                <article class="card" data-id="fix-max" data-nombre="Fixodent Ultra Max Hold" data-precio="17">
                     <img src="imagenes/1001848049.jpg" alt="Fixodent Ultra Max Hold">
                     <div>
                         <h3>Fixodent Ultra Max Hold</h3>
                         <p class="product-description">
                             Fórmula de fijación superior de máxima fuerza sostenida. Mantiene la sujeción firme hasta el final del día.
                         </p>
-                        <p class="product-price">$20 BCV</p>
+                        <p class="product-price">$17 BCV</p>
                     </div>
                     <button class="btn-whatsapp-product btn-agregar-carrito">
                         <i class="fa-solid fa-cart-plus"></i> Añadir al carrito
@@ -518,14 +518,14 @@
                 </article>
 
                 <!-- Producto 3 -->
-                <article class="card" data-id="fix-scope" data-nombre="Fixodent Plus Scope" data-precio="20">
+                <article class="card" data-id="fix-scope" data-nombre="Fixodent Plus Scope" data-precio="17">
                     <img src="imagenes/1001848043.jpg" alt="Fixodent Plus Scope">
                     <div>
                         <h3>Fixodent Plus Scope</h3>
                         <p class="product-description">
                             Excelente fijación combinada con el aliento fresco y el sabor limpio de la tecnología del enjuague Scope.
                         </p>
-                        <p class="product-price">$20 BCV</p>
+                        <p class="product-price">$17 BCV</p>
                     </div>
                     <button class="btn-whatsapp-product btn-agregar-carrito">
                         <i class="fa-solid fa-cart-plus"></i> Añadir al carrito
@@ -533,14 +533,14 @@
                 </article>
 
                 <!-- Producto 4 -->
-                <article class="card" data-id="fix-pure" data-nombre="Fixodent Pure Strength" data-precio="20">
+                <article class="card" data-id="fix-pure" data-nombre="Fixodent Pure Strength" data-precio="17">
                     <img src="imagenes/1001848053.jpg" alt="Fixodent Pure Strength">
                     <div>
                         <h3>Fixodent Pure Strength</h3>
                         <p class="product-description">
                             Fórmula libre de colorantes y sabores artificiales. Brinda una sujeción limpia, natural y confiable.
                         </p>
-                        <p class="product-price">$20 BCV</p>
+                        <p class="product-price">$17 BCV</p>
                     </div>
                     <button class="btn-whatsapp-product btn-agregar-carrito">
                         <i class="fa-solid fa-cart-plus"></i> Añadir al carrito
@@ -580,7 +580,7 @@
             </div>
 
             <div id="descuento-box" class="carrito-descuento-box">
-                <i class="fa-solid fa-tag"></i> ¡Descuento del 20% aplicado por la compra de 2+ unidades!
+                <i class="fa-solid fa-tag"></i> ¡Descuento del 11% aplicado por la compra de 2+ unidades!
             </div>
 
             <div class="carrito-footer">
@@ -615,9 +615,12 @@
 
     <!-- JavaScript Integrado -->
     <script>
-        const PRECIO_USD = 20; 
+        const PRECIO_USD = 17; 
         let tasaBCVGlobal = 0;
+        
+        // Cargar carrito y asegurar que los precios antiguos en localStorage se sincronicen con PRECIO_USD
         let carrito = JSON.parse(localStorage.getItem('carrito_tuprotesis')) || [];
+        carrito = carrito.map(item => ({ ...item, precio: PRECIO_USD }));
 
         // 1. Obtener Tasa BCV
         async function actualizarPrecioBCV() {
@@ -660,19 +663,19 @@
                 const card = e.target.closest('.card');
                 const id = card.getAttribute('data-id');
                 const nombre = card.getAttribute('data-nombre');
-                const precio = parseFloat(card.getAttribute('data-precio'));
 
-                agregarProducto(id, nombre, precio);
+                agregarProducto(id, nombre);
             });
         });
 
-        function agregarProducto(id, nombre, precio) {
+        function agregarProducto(id, nombre) {
             const existe = carrito.find(item => item.id === id);
 
             if (existe) {
                 existe.cantidad += 1;
+                existe.precio = PRECIO_USD;
             } else {
-                carrito.push({ id, nombre, precio, cantidad: 1 });
+                carrito.push({ id, nombre, precio: PRECIO_USD, cantidad: 1 });
             }
 
             actualizarCarrito();
@@ -705,6 +708,7 @@
                 listaCarrito.innerHTML = '<p style="color: #777; text-align: center;">El carrito está vacío</p>';
             } else {
                 carrito.forEach(item => {
+                    item.precio = PRECIO_USD; // Forzar precio constante de referencia
                     const subtotalItem = item.precio * item.cantidad;
                     subtotalUsd += subtotalItem;
                     totalItems += item.cantidad;
@@ -728,13 +732,13 @@
                 });
             }
 
-            // Aplicar 20% de descuento si lleva 2 o más unidades
+            // Aplicar 11% de descuento si lleva 2 o más unidades
             let descuentoUsd = 0;
             if (totalItems >= 2) {
-                descuentoUsd = subtotalUsd * 0.20;
+                descuentoUsd = subtotalUsd * 0.1177;
                 descuentoBox.style.display = 'block';
                 subtotalLine.textContent = `Subtotal: $${subtotalUsd.toFixed(2)}`;
-                descuentoLine.textContent = `Descuento (20%): -$${descuentoUsd.toFixed(2)}`;
+                descuentoLine.textContent = `Descuento (11%): -$${descuentoUsd.toFixed(2)}`;
             } else {
                 descuentoBox.style.display = 'none';
                 subtotalLine.textContent = '';
@@ -778,9 +782,9 @@
 
             let totalFinal = subtotal;
             if (totalItems >= 2) {
-                const descuento = subtotal * 0.20;
+                const descuento = subtotal * 0.1177;
                 totalFinal = subtotal - descuento;
-                mensaje += `\n*Descuento (20% por 2+ uds):* -$${descuento.toFixed(2)}`;
+                mensaje += `\n*Descuento (11% por 2+ uds):* -$${descuento.toFixed(2)}`;
             }
 
             mensaje += `\n*Total a pagar:* $${totalFinal.toFixed(2)} USD`;
