@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TuProtesis - Productos Fixodent</title>
-    
+    <title>TuProtesis - Fixodent y Polident en Venezuela</title>
+
+    <!-- SEO y redes sociales -->
+    <meta name="description" content="Compra adhesivos Fixodent y tabletas limpiadoras Polident para prótesis dentales en Venezuela. Pago a tasa BCV del día. Pedidos por WhatsApp.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TuProtesis - Fixodent y Polident">
+    <meta property="og:description" content="Fixodent Original, Ultra Max Hold, Plus Scope, Pure Strength, Polvo Extra Hold y Polident 3 Minutos. Pedidos por WhatsApp.">
+    <!-- Cambia esta URL por la de tu dominio real y sube una imagen og.jpg (1200x630) -->
+    <meta property="og:image" content="imagenes/og.jpg">
+    <link rel="icon" href="imagenes/favicon.png">
+
     <!-- Iconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -23,7 +32,7 @@
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1611176747057532&ev=PageView&noscript=1"
-    /></noscript>
+    alt=""/></noscript>
     <!-- End Meta Pixel Code -->
 
     <style>
@@ -44,9 +53,7 @@
             font-family: Arial, sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
         body {
             background-color: var(--bg-light);
@@ -56,6 +63,8 @@
             display: flex;
             flex-direction: column;
         }
+
+        button { font-family: inherit; }
 
         /* Header / Navegación */
         header {
@@ -71,17 +80,8 @@
             z-index: 100;
         }
 
-        .logo a {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .logo img {
-            max-height: 45px;
-            width: auto;
-            object-fit: contain;
-        }
+        .logo a { display: flex; align-items: center; text-decoration: none; }
+        .logo img { max-height: 45px; width: auto; object-fit: contain; }
 
         nav ul {
             list-style: none;
@@ -90,17 +90,18 @@
             align-items: center;
         }
 
-        nav a {
+        nav a, .btn-link-nav {
             color: #ffffff;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1rem;
             transition: color 0.2s ease;
             cursor: pointer;
+            background: none;
+            border: none;
         }
 
-        nav a:hover {
-            color: #f3d4ff;
-        }
+        nav a:hover, .btn-link-nav:hover { color: #f3d4ff; }
 
         /* Banner Principal (Hero) */
         .hero {
@@ -125,6 +126,8 @@
             color: #f6e3ff;
         }
 
+        .hero p strong { color: #ffffff; }
+
         .btn-whatsapp-inline {
             display: inline-flex;
             align-items: center;
@@ -146,9 +149,32 @@
             transform: translateY(-2px);
         }
 
+        /* Franja de confianza */
+        .confianza {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px 36px;
+            padding: 1.2rem 1rem;
+            background: #ffffff;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .confianza-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+
+        .confianza-item i { font-size: 1.3rem; color: var(--primary-color); }
+
         /* Contenedor Principal */
         .container {
             max-width: 1100px;
+            width: 100%;
             margin: 2.5rem auto;
             padding: 2rem 1.5rem;
             flex: 1;
@@ -159,7 +185,14 @@
             text-align: center;
             font-size: 1.8rem;
             color: var(--primary-dark);
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nota-precio {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-subdued);
+            margin-bottom: 1.8rem;
         }
 
         /* Rejilla de Productos */
@@ -170,11 +203,11 @@
         }
 
         .card {
-            background: #ffffff; 
+            background: #ffffff;
             padding: 1.5rem;
             border-radius: 12px;
-            border: 1px solid var(--card-border); 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -194,10 +227,7 @@
             margin-bottom: 1rem;
         }
 
-        .card h3 {
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-        }
+        .card h3 { color: var(--primary-dark); margin-bottom: 0.5rem; }
 
         .product-description {
             font-size: 0.92rem;
@@ -211,6 +241,12 @@
             color: var(--primary-dark);
             margin-bottom: 1.2rem;
             line-height: 1.3;
+        }
+
+        .product-price small {
+            font-size: 0.85em;
+            font-weight: normal;
+            color: #555;
         }
 
         .btn-whatsapp-product {
@@ -230,9 +266,7 @@
             transition: background-color 0.2s ease;
         }
 
-        .btn-whatsapp-product:hover {
-            background-color: var(--primary-hover);
-        }
+        .btn-whatsapp-product:hover { background-color: var(--primary-hover); }
 
         /* Estilos Modales */
         .modal {
@@ -248,6 +282,8 @@
             justify-content: center;
         }
 
+        .modal.abierto { display: flex; }
+
         .modal-content {
             background-color: #ffffff;
             padding: 2rem;
@@ -262,14 +298,18 @@
             overflow-y: auto;
         }
 
-        .close-modal, .close-carrito {
+        .btn-cerrar {
             position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 1.5rem;
+            top: 8px;
+            right: 12px;
+            font-size: 1.6rem;
+            line-height: 1;
             font-weight: bold;
             color: var(--primary-dark);
             cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px 8px;
         }
 
         .contact-info {
@@ -288,22 +328,23 @@
             color: var(--text-color);
         }
 
-        .contact-item i {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-        }
+        .contact-item a { color: var(--text-color); text-decoration: none; }
+        .contact-item a:hover { color: var(--primary-dark); text-decoration: underline; }
+        .contact-item i { font-size: 1.4rem; color: var(--primary-color); width: 1.6rem; text-align: center; }
 
-        /* Estilos del Carrito */
+        /* Carrito */
         .btn-carrito-nav {
             background: white;
             color: var(--primary-dark);
             padding: 6px 14px;
             border-radius: 20px;
+            border: none;
             display: flex;
             align-items: center;
             gap: 8px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 1rem;
         }
 
         #contador-carrito {
@@ -314,31 +355,27 @@
             font-size: 0.8rem;
         }
 
-        .lista-carrito {
-            margin: 1.5rem 0;
-            text-align: left;
-        }
+        .lista-carrito { margin: 1.5rem 0 1rem; text-align: left; }
 
         .item-carrito {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 8px;
             padding: 10px 0;
             border-bottom: 1px solid #eee;
         }
 
-        .controles-cantidad {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .item-carrito .info { flex: 1; }
+
+        .controles-cantidad { display: flex; align-items: center; gap: 8px; }
 
         .btn-qty {
             background: var(--bg-light);
             border: 1px solid var(--card-border);
             color: var(--primary-dark);
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
             border-radius: 4px;
             cursor: pointer;
             font-weight: bold;
@@ -365,12 +402,47 @@
             display: none;
         }
 
-        .carrito-footer {
-            margin-top: 1rem;
+        .aviso-oferta {
+            background: var(--bg-light);
+            border: 1px dashed var(--card-border);
+            color: var(--primary-dark);
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        .datos-cliente {
             display: flex;
             flex-direction: column;
             gap: 8px;
+            margin: 0.5rem 0 1rem;
+            text-align: left;
         }
+
+        .datos-cliente label { font-size: 0.85rem; color: var(--text-subdued); }
+
+        .datos-cliente input {
+            width: 100%;
+            padding: 9px 10px;
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .datos-cliente input:focus {
+            outline: 2px solid var(--primary-color);
+            border-color: transparent;
+        }
+
+        .carrito-footer { margin-top: 0.5rem; display: flex; flex-direction: column; gap: 8px; }
+
+        #resumen-precios { text-align: right; margin-bottom: 5px; }
+        #subtotal-line { font-size: 0.9em; color: #666; }
+        #descuento-line { font-size: 0.9em; color: #27ae60; font-weight: bold; }
+        #resumen-precios h4 { font-size: 1.2em; color: var(--primary-dark); }
+        #total-bs-container { font-size: 0.9em; color: #555; text-align: right; }
 
         .btn-checkout-wsp {
             background-color: #25D366;
@@ -388,6 +460,8 @@
             margin-top: 5px;
         }
 
+        .btn-checkout-wsp:hover { background-color: #1ebe5a; }
+
         .btn-vaciar {
             background: transparent;
             color: var(--text-subdued);
@@ -395,6 +469,412 @@
             cursor: pointer;
             text-decoration: underline;
             font-size: 0.85rem;
+        }
+
+        /* Aviso "Añadido" */
+        #toast {
+            position: fixed;
+            left: 50%;
+            bottom: 100px;
+            transform: translate(-50%, 20px);
+            background: var(--primary-dark);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            z-index: 3000;
+        }
+
+        #toast.visible { opacity: 1; transform: translate(-50%, 0); }
+
+        /* Botón principal del carrito */
+        .btn-orden {
+            background-color: var(--primary-dark);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .btn-orden:hover { background-color: var(--primary-color); }
+        .btn-orden:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* Orden de compra */
+        .modal-orden .modal-content { max-width: 680px; text-align: left; }
+        .modal-orden h3 { text-align: center; margin-bottom: 1rem; }
+
+        .form-orden {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 12px;
+            margin-bottom: 1.2rem;
+        }
+
+        .form-orden .campo { display: flex; flex-direction: column; gap: 4px; }
+        .form-orden .campo-ancho { grid-column: 1 / -1; }
+        .form-orden label { font-size: 0.85rem; color: var(--text-subdued); }
+
+        .form-orden input, .form-orden select {
+            width: 100%;
+            padding: 9px 10px;
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            background: #fff;
+        }
+
+        .form-orden input:focus, .form-orden select:focus {
+            outline: 2px solid var(--primary-color);
+            border-color: transparent;
+        }
+
+        .orden-doc {
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 1.2rem;
+            background: #fff;
+            color: var(--text-color);
+        }
+
+        .orden-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.7rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .orden-head h4 { color: var(--primary-dark); font-size: 1.35rem; }
+        .orden-head small { color: var(--text-subdued); }
+        .orden-meta { text-align: right; font-size: 0.9rem; }
+
+        .orden-cliente { margin-bottom: 0.9rem; }
+        .orden-cliente p { font-size: 0.92rem; margin-bottom: 2px; }
+
+        .orden-tabla { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+        .orden-tabla th { background: var(--bg-light); color: var(--primary-dark); text-align: left; }
+        .orden-tabla th, .orden-tabla td { padding: 7px 6px; border-bottom: 1px solid #eee; }
+        .orden-tabla .num { text-align: right; white-space: nowrap; }
+
+        .orden-totales { text-align: right; margin-top: 0.8rem; font-size: 0.92rem; }
+        .orden-ahorro { color: #27ae60; font-weight: bold; }
+        .orden-total { font-size: 1.25rem; font-weight: bold; color: var(--primary-dark); }
+        .orden-legal { font-size: 0.75rem; color: #777; margin-top: 1rem; line-height: 1.4; }
+
+        .orden-acciones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
+        .orden-acciones .btn-checkout-wsp { flex: 1 1 200px; margin-top: 0; }
+
+        .btn-accion {
+            flex: 1 1 200px;
+            background: #fff;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-color);
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-accion:hover { background: var(--bg-light); }
+
+        .btn-volver {
+            background: none;
+            border: none;
+            color: var(--text-subdued);
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-top: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .form-orden { grid-template-columns: 1fr; }
+        }
+
+        .form-orden .cedula-grupo { display: flex; gap: 6px; }
+        .form-orden .cedula-grupo select { width: 72px; flex: none; }
+        .form-orden .ayuda { font-size: 0.78rem; color: var(--text-subdued); }
+
+        .nota-envio-form {
+            grid-column: 1 / -1;
+            background-color: #eafaf1;
+            border: 1px dashed #27ae60;
+            color: #1e8449;
+            padding: 8px 10px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .nota-precio.nota-envio {
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        /* Impresión / guardar como PDF: solo se imprime la orden */
+        @media print {
+            body.imprimiendo-orden { background: #fff; display: block; }
+            body.imprimiendo-orden > *:not(#modal-orden) { display: none !important; }
+            body.imprimiendo-orden #modal-orden {
+                position: static;
+                display: block !important;
+                background: #fff;
+                width: 100%;
+                height: auto;
+            }
+            body.imprimiendo-orden #modal-orden .modal-content {
+                border: none;
+                box-shadow: none;
+                max-height: none;
+                overflow: visible;
+                max-width: 100%;
+                width: 100%;
+                padding: 0;
+            }
+            body.imprimiendo-orden .no-print { display: none !important; }
+            body.imprimiendo-orden .orden-doc { border: none; padding: 0; }
+        }
+
+        /* Etiqueta de producto y botones de la tarjeta */
+        .badge {
+            display: inline-block;
+            background: var(--bg-light);
+            color: var(--primary-dark);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2px 10px;
+            font-size: 0.78rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-botones { display: flex; flex-direction: column; gap: 8px; }
+
+        .btn-detalle {
+            background: #fff;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.92rem;
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-detalle:hover { background: var(--bg-light); }
+
+        /* Secciones de calidad e instructivo */
+        .seccion { margin-top: 3.5rem; }
+
+        .seccion-sub {
+            text-align: center;
+            color: var(--text-subdued);
+            font-size: 0.95rem;
+            max-width: 650px;
+            margin: 0 auto 1.8rem;
+        }
+
+        .calidad-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .calidad-item {
+            background: #fff;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        .calidad-item i { font-size: 1.8rem; color: var(--primary-color); margin-bottom: 0.6rem; }
+        .calidad-item h3 { color: var(--primary-dark); font-size: 1.05rem; margin-bottom: 0.3rem; }
+        .calidad-item p { font-size: 0.9rem; color: var(--text-subdued); }
+
+        .pasos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 18px;
+        }
+
+        .paso {
+            background: #fff;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.2rem 1rem 1rem;
+            text-align: center;
+        }
+
+        .paso-num {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: #fff;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.6rem;
+        }
+
+        .paso i { font-size: 1.6rem; color: var(--primary-color); margin-bottom: 0.4rem; }
+        .paso h3 { color: var(--primary-dark); font-size: 1rem; margin-bottom: 0.3rem; }
+        .paso p { font-size: 0.88rem; color: var(--text-subdued); }
+
+        .consejos {
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+
+        .consejo-caja {
+            background: #fff;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.2rem 1.4rem;
+        }
+
+        .consejo-caja h3 { color: var(--primary-dark); font-size: 1.05rem; margin-bottom: 0.6rem; }
+        .consejo-caja ul { padding-left: 1.2rem; font-size: 0.92rem; color: var(--text-subdued); }
+        .consejo-caja li { margin-bottom: 0.35rem; }
+        .consejo-caja.alerta { border-color: #f0c36d; background: #fffaf0; }
+
+        .aviso-fuente { text-align: center; font-size: 0.78rem; color: #777; margin-top: 1.2rem; }
+
+        /* Detalle de producto */
+        .modal-producto .modal-content { max-width: 520px; text-align: left; }
+
+        .modal-producto img {
+            display: block;
+            margin: 0 auto 1rem;
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+        }
+
+        .modal-producto h3 { color: var(--primary-dark); margin-bottom: 0.3rem; }
+        .modal-producto h4 { color: var(--primary-dark); margin: 1rem 0 0.4rem; font-size: 1rem; }
+
+        .lista-calidad { list-style: none; padding: 0; }
+
+        .lista-calidad li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            font-size: 0.93rem;
+            margin-bottom: 0.45rem;
+            color: var(--text-color);
+        }
+
+        .lista-calidad i { color: #27ae60; margin-top: 0.25rem; }
+
+        .modal-producto .ideal {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+        }
+
+        .modal-producto .nota-legal { font-size: 0.78rem; color: #777; margin-top: 0.8rem; }
+        .modal-producto-acciones { display: flex; flex-direction: column; gap: 8px; margin-top: 1rem; }
+
+        @media (max-width: 600px) {
+            nav ul { flex-wrap: wrap; justify-content: center; }
+        }
+
+        /* Oferta y agotado en tarjetas */
+        .oferta-card {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #1e8449;
+            background: #eafaf1;
+            border-radius: 6px;
+            padding: 4px 8px;
+            margin: -0.6rem 0 1rem;
+        }
+
+        .btn-whatsapp-product:disabled { background: #b9b9b9; cursor: not-allowed; }
+        .card.agotado img { opacity: 0.5; }
+        a.btn-detalle { text-decoration: none; }
+
+        /* Confirmación de la orden */
+        .modal-confirmacion .modal-content { max-width: 480px; }
+        .confirm-icono { font-size: 3rem; color: #27ae60; line-height: 1.2; }
+        .modal-confirmacion h3 { color: var(--primary-dark); margin: 0.3rem 0; }
+        .modal-confirmacion h4 { color: var(--primary-dark); margin-top: 1rem; font-size: 1rem; text-align: left; }
+        .confirm-total { font-size: 1.1rem; margin: 0.4rem 0 0.8rem; }
+
+        .datos-pago {
+            background: var(--bg-light);
+            border: 1px dashed var(--card-border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            text-align: left;
+            white-space: pre-line;
+            font-size: 0.92rem;
+            margin: 0.5rem 0;
+        }
+
+        .ayuda-confirm { font-size: 0.85rem; color: var(--text-subdued); margin-top: 0.8rem; }
+        .confirm-acciones { display: flex; flex-direction: column; gap: 8px; margin-top: 1rem; }
+        .modal-confirmacion .btn-detalle { margin-top: 4px; }
+
+        /* Barra del carrito (solo móvil) */
+        .barra-carrito {
+            display: none;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 900;
+            background: var(--primary-dark);
+            color: #fff;
+            border: none;
+            padding: 14px 18px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .barra-carrito.visible { display: flex; }
+            body.con-barra { padding-bottom: 72px; }
+            body.con-barra .wsp-float { bottom: 88px; }
+            body.con-barra #toast { bottom: 150px; }
         }
 
         /* Botón Flotante WhatsApp */
@@ -418,10 +898,7 @@
             transition: all 0.3s ease;
         }
 
-        .wsp-float:hover {
-            background-color: var(--primary-hover);
-            transform: scale(1.1);
-        }
+        .wsp-float:hover { background-color: var(--primary-hover); transform: scale(1.1); }
 
         footer {
             text-align: center;
@@ -432,15 +909,20 @@
             border-top: 4px solid var(--primary-hover);
         }
 
+        :focus-visible { outline: 3px solid #ffd54f; outline-offset: 2px; }
+
         @media (max-width: 600px) {
             header {
+                position: static;
                 flex-direction: column;
-                gap: 10px;
+                gap: 8px;
+                padding: 0.6rem 1rem;
                 text-align: center;
             }
-            .hero h1 {
-                font-size: 1.75rem;
-            }
+            nav ul { gap: 14px; }
+            .hero { padding: 2.5rem 1rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .container { padding: 1rem; margin: 1.5rem auto; }
         }
     </style>
 </head>
@@ -449,20 +931,21 @@
     <!-- Encabezado / Menú -->
     <header>
         <div class="logo">
-            <a href="#inicio">
+            <a href="#inicio" aria-label="Ir al inicio">
                 <img src="imagenes/123.png" alt="Logo TuProtesis">
             </a>
         </div>
-        <nav>
+        <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#productos">Productos</a></li>
-                <li><a id="btn-contacto">Contacto</a></li>
+                <li><a href="#instructivo">Cómo se aplica</a></li>
+                <li><button type="button" class="btn-link-nav" id="btn-contacto">Contacto</button></li>
                 <li>
-                    <div class="btn-carrito-nav" id="abrir-carrito">
-                        <i class="fa-solid fa-cart-shopping"></i>
+                    <button type="button" class="btn-carrito-nav" id="abrir-carrito" aria-label="Abrir carrito">
+                        <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
                         <span id="contador-carrito">0</span>
-                    </div>
+                    </button>
                 </li>
             </ul>
         </nav>
@@ -470,142 +953,293 @@
 
     <!-- Banner Principal -->
     <section id="inicio" class="hero">
-        <h1>Adhesivos para Prótesis Dentales Fixodent</h1>
-        <p>Aprovecha un <strong>11% de descuento</strong> al llevar 2 o más unidades</p>
-        <a href="https://wa.me/584121630808?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20los%20productos%20Fixodent." 
-           class="btn-whatsapp-inline" 
+        <h1>Adhesivos y Limpiadores para Prótesis Dentales</h1>
+        <p>Llévate <strong>2 o más unidades y ahorra $2 en cada una</strong> <span style="opacity:.85">(cremas a $15 c/u en vez de $17)</span></p>
+        <a href="https://wa.me/584121630808"
+           class="btn-whatsapp-inline js-wsp"
+           data-msg="Hola, me gustaría recibir información sobre los productos Fixodent."
            target="_blank"
            rel="noopener noreferrer">
-            <i class="fa-brands fa-whatsapp"></i> Chatear por WhatsApp
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Chatear por WhatsApp
         </a>
+    </section>
+
+    <!-- Franja de confianza: EDITA estos textos con tus datos reales -->
+    <section class="confianza" aria-label="Información de compra">
+        <div class="confianza-item"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Entregas coordinadas por WhatsApp</div>
+        <div class="confianza-item"><i class="fa-solid fa-money-bill-transfer" aria-hidden="true"></i> Pago en bolívares a tasa BCV</div>
+        <div class="confianza-item"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Producto original</div>
     </section>
 
     <!-- Catálogo de Productos -->
     <main class="container">
         <section id="productos">
             <h2 class="section-title">Nuestros Productos</h2>
-            
-            <div class="services">
-                
-                <!-- Producto 1 -->
-                <article class="card" data-id="fix-orig" data-nombre="Fixodent Original" data-precio="17">
-                    <img src="imagenes/1001848047.jpg" alt="Fixodent Original">
-                    <div>
-                        <h3>Fixodent Original</h3>
-                        <p class="product-description">
-                            Fijación fuerte y duradera durante todo el día. Previene la entrada de restos de comida debajo de la prótesis.
-                        </p>
-                        <p class="product-price">$17 BCV</p>
-                    </div>
-                    <button class="btn-whatsapp-product btn-agregar-carrito">
-                        <i class="fa-solid fa-cart-plus"></i> Añadir al carrito
-                    </button>
-                </article>
+            <p class="nota-precio nota-envio"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> <span data-envio-texto></span></p>
+            <p class="nota-precio" id="nota-precio">
+                Precio en dólares, pagadero en bolívares a la tasa BCV del día.
+            </p>
 
-                <!-- Producto 2 -->
-                <article class="card" data-id="fix-max" data-nombre="Fixodent Ultra Max Hold" data-precio="17">
-                    <img src="imagenes/1001848049.jpg" alt="Fixodent Ultra Max Hold">
-                    <div>
-                        <h3>Fixodent Ultra Max Hold</h3>
-                        <p class="product-description">
-                            Fórmula de fijación superior de máxima fuerza sostenida. Mantiene la sujeción firme hasta el final del día.
-                        </p>
-                        <p class="product-price">$17 BCV</p>
-                    </div>
-                    <button class="btn-whatsapp-product btn-agregar-carrito">
-                        <i class="fa-solid fa-cart-plus"></i> Añadir al carrito
-                    </button>
-                </article>
-
-                <!-- Producto 3 -->
-                <article class="card" data-id="fix-scope" data-nombre="Fixodent Plus Scope" data-precio="17">
-                    <img src="imagenes/1001848043.jpg" alt="Fixodent Plus Scope">
-                    <div>
-                        <h3>Fixodent Plus Scope</h3>
-                        <p class="product-description">
-                            Excelente fijación combinada con el aliento fresco y el sabor limpio de la tecnología del enjuague Scope.
-                        </p>
-                        <p class="product-price">$17 BCV</p>
-                    </div>
-                    <button class="btn-whatsapp-product btn-agregar-carrito">
-                        <i class="fa-solid fa-cart-plus"></i> Añadir al carrito
-                    </button>
-                </article>
-
-                <!-- Producto 4 -->
-                <article class="card" data-id="fix-pure" data-nombre="Fixodent Pure Strength" data-precio="17">
-                    <img src="imagenes/1001848053.jpg" alt="Fixodent Pure Strength">
-                    <div>
-                        <h3>Fixodent Pure Strength</h3>
-                        <p class="product-description">
-                            Fórmula libre de colorantes y sabores artificiales. Brinda una sujeción limpia, natural y confiable.
-                        </p>
-                        <p class="product-price">$17 BCV</p>
-                    </div>
-                    <button class="btn-whatsapp-product btn-agregar-carrito">
-                        <i class="fa-solid fa-cart-plus"></i> Añadir al carrito
-                    </button>
-                </article>
-                
+            <div class="services" id="catalogo">
+                <!-- Se genera desde el arreglo PRODUCTOS (ver script) -->
             </div>
+        </section>
+    
+        <!-- Calidad -->
+        <section id="calidad" class="seccion">
+            <h2 class="section-title">¿Por qué Fixodent?</h2>
+            <p class="seccion-sub">Lo que ofrece la línea Fixodent, según el fabricante.</p>
+            <div class="calidad-grid">
+                <div class="calidad-item">
+                    <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                    <h3>Fijación todo el día</h3>
+                    <p>Una sola aplicación al día para mantener tu prótesis firme al hablar, reír y comer.</p>
+                </div>
+                <div class="calidad-item">
+                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                    <h3>Sello contra la comida</h3>
+                    <p>Ayuda a evitar que restos de comida se metan entre la prótesis y la encía.</p>
+                </div>
+                <div class="calidad-item">
+                    <i class="fa-solid fa-face-smile" aria-hidden="true"></i>
+                    <h3>Más comodidad</h3>
+                    <p>Forma una capa amortiguadora entre la encía y la prótesis.</p>
+                </div>
+                <div class="calidad-item">
+                    <i class="fa-solid fa-tooth" aria-hidden="true"></i>
+                    <h3>Completas y parciales</h3>
+                    <p>Pensado para prótesis dentales completas y también parciales.</p>
+                </div>
+            </div>
+            <p class="aviso-fuente">Toca "Ver calidad y detalles" en cada producto para conocer sus características específicas.</p>
+        </section>
+
+        <!-- Instructivo -->
+        <section id="instructivo" class="seccion">
+            <h2 class="section-title">¿Cómo se aplica?</h2>
+            <p class="seccion-sub">Sigue estos 4 pasos para una fijación cómoda y segura.</p>
+
+            <div class="pasos">
+                <div class="paso">
+                    <div class="paso-num">1</div>
+                    <i class="fa-solid fa-soap" aria-hidden="true"></i>
+                    <h3>Limpia y seca</h3>
+                    <p>Lava tu prótesis y sécala bien antes de aplicar. Limpia también tus encías.</p>
+                </div>
+                <div class="paso">
+                    <div class="paso-num">2</div>
+                    <i class="fa-solid fa-ellipsis" aria-hidden="true"></i>
+                    <h3>Aplica la crema</h3>
+                    <p>Coloca tiras finas (o puntos) sobre la superficie interna de la prótesis, sin llegar al borde. La primera vez usa poca cantidad y ajusta.</p>
+                </div>
+                <div class="paso">
+                    <div class="paso-num">3</div>
+                    <i class="fa-solid fa-hand-pointer" aria-hidden="true"></i>
+                    <h3>Coloca y presiona</h3>
+                    <p>Inserta la prótesis en la boca, presiónala firmemente y mantenla en su lugar unos segundos.</p>
+                </div>
+                <div class="paso">
+                    <div class="paso-num">4</div>
+                    <i class="fa-solid fa-tooth" aria-hidden="true"></i>
+                    <h3>Retírala con cuidado</h3>
+                    <p>Enjuaga tu boca con agua tibia y mueve suavemente la prótesis hasta que se suelte. Límpiala y mantenla húmeda cuando no la uses.</p>
+                </div>
+            </div>
+
+            <div class="consejos">
+                <div class="consejo-caja">
+                    <h3><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Consejos</h3>
+                    <ul>
+                        <li>Si la crema se desborda por los bordes, estás usando demasiada: aplica menos la próxima vez.</li>
+                        <li>Una aplicación al día es suficiente. No uses más cantidad de la indicada en el empaque.</li>
+                        <li>Seca bien la prótesis antes de aplicar para que la humedad no tape la boquilla del tubo.</li>
+                        <li>Anota la fecha en que abres el tubo.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="aviso-fuente">Instrucciones generales basadas en las indicaciones del fabricante. Lee siempre la etiqueta y las instrucciones del empaque de tu producto.</p>
         </section>
     </main>
 
     <!-- Modal Contacto -->
-    <div id="modal-contacto" class="modal">
+    <div id="modal-contacto" class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-contacto">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h3 style="color: var(--primary-dark);">Información de Contacto</h3>
+            <button type="button" class="btn-cerrar" data-cerrar="modal-contacto" aria-label="Cerrar">&times;</button>
+            <h3 id="titulo-contacto" style="color: var(--primary-dark);">Información de Contacto</h3>
             <div class="contact-info">
                 <div class="contact-item">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span><strong>WhatsApp:</strong> 584121630808</span>
+                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                    <span><strong>WhatsApp:</strong>
+                        <a href="https://wa.me/584121630808" class="js-wsp" data-msg="Hola, quisiera información." target="_blank" rel="noopener noreferrer">+58 412-1630808</a>
+                    </span>
                 </div>
                 <div class="contact-item">
-                    <i class="fa-brands fa-instagram"></i>
-                    <span><strong>Instagram:</strong> @Tuprotesis_Val</span>
+                    <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                    <span><strong>Llamar:</strong> <a href="tel:+584121630808">+58 412-1630808</a></span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    <span><strong>Instagram:</strong>
+                        <a href="https://instagram.com/Tuprotesis_Val" target="_blank" rel="noopener noreferrer">@Tuprotesis_Val</a>
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal Carrito -->
-    <div id="modal-carrito" class="modal">
+    <div id="modal-carrito" class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-carrito">
         <div class="modal-content">
-            <span class="close-carrito" id="cerrar-carrito">&times;</span>
-            <h3 style="color: var(--primary-dark);"><i class="fa-solid fa-cart-shopping"></i> Tu Carrito</h3>
-            
-            <div id="lista-carrito" class="lista-carrito">
-                <!-- Se genera dinámicamente -->
+            <button type="button" class="btn-cerrar" data-cerrar="modal-carrito" aria-label="Cerrar carrito">&times;</button>
+            <h3 id="titulo-carrito" style="color: var(--primary-dark);">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Tu Carrito
+            </h3>
+
+            <div id="lista-carrito" class="lista-carrito"></div>
+
+            <div id="aviso-oferta" class="aviso-oferta">
+                <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                Añade 1 unidad más y cada una te sale con precio por volumen.
             </div>
 
             <div id="descuento-box" class="carrito-descuento-box">
-                <i class="fa-solid fa-tag"></i> ¡Descuento del 11% aplicado por la compra de 2+ unidades!
+                <i class="fa-solid fa-tag" aria-hidden="true"></i> ¡Precio por volumen aplicado por llevar 2 o más unidades!
             </div>
 
+            <div id="aviso-envio" class="aviso-oferta"></div>
+
             <div class="carrito-footer">
-                <div id="resumen-precios" style="text-align: right; margin-bottom: 5px;">
-                    <p id="subtotal-line" style="font-size: 0.9em; color: #666;"></p>
-                    <p id="descuento-line" style="font-size: 0.9em; color: #27ae60; font-weight: bold;"></p>
-                    <h4 style="font-size: 1.2em; color: var(--primary-dark);">Total Ref: $<span id="total-usd">0.00</span> USD</h4>
+                <div id="resumen-precios">
+                    <p id="subtotal-line"></p>
+                    <p id="descuento-line"></p>
+                    <h4>Total Ref: $<span id="total-usd">0.00</span> USD</h4>
                 </div>
-                <p id="total-bs-container" style="font-size: 0.9em; color: #555; text-align: right;"></p>
-                
-                <button id="checkout-whatsapp" class="btn-checkout-wsp">
-                    <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+                <p id="total-bs-container"></p>
+
+                <button type="button" id="generar-orden" class="btn-orden">
+                    <i class="fa-solid fa-file-invoice" aria-hidden="true"></i> Generar orden de compra
                 </button>
-                <button id="vaciar-carrito" class="btn-vaciar">Vaciar Carrito</button>
+                <button type="button" id="vaciar-carrito" class="btn-vaciar">Vaciar Carrito</button>
             </div>
         </div>
     </div>
 
+    <!-- Modal Orden de compra -->
+    <div id="modal-orden" class="modal modal-orden" role="dialog" aria-modal="true" aria-labelledby="titulo-orden">
+        <div class="modal-content">
+            <button type="button" class="btn-cerrar no-print" data-cerrar="modal-orden" aria-label="Cerrar">&times;</button>
+            <h3 id="titulo-orden" class="no-print" style="color: var(--primary-dark);">
+                <i class="fa-solid fa-file-invoice" aria-hidden="true"></i> Orden de compra
+            </h3>
+
+            <form id="form-orden" class="form-orden no-print" novalidate>
+                <div class="campo">
+                    <label for="orden-nombre">Nombre y apellido *</label>
+                    <input type="text" id="orden-nombre" autocomplete="name" maxlength="60">
+                </div>
+                <div class="campo">
+                    <label for="orden-cedula">Cédula *</label>
+                    <div class="cedula-grupo">
+                        <select id="orden-cedula-tipo" aria-label="Tipo de documento">
+                            <option value="V">V</option>
+                            <option value="E">E</option>
+                        </select>
+                        <input type="text" id="orden-cedula" inputmode="numeric" autocomplete="off" maxlength="11" placeholder="12345678">
+                    </div>
+                </div>
+                <div class="campo">
+                    <label for="orden-telefono">Teléfono (opcional)</label>
+                    <input type="tel" id="orden-telefono" autocomplete="tel" maxlength="20">
+                </div>
+                <div class="campo">
+                    <label for="orden-pago">Método de pago</label>
+                    <select id="orden-pago"></select>
+                </div>
+                <div class="campo campo-ancho">
+                    <label for="orden-tipo">Tipo de entrega *</label>
+                    <select id="orden-tipo">
+                        <option value="delivery">Delivery (solo Valencia)</option>
+                        <option value="pickup">Pick up (retiro personal)</option>
+                        <option value="nacional">Envío a nivel nacional</option>
+                    </select>
+                </div>
+                <div class="campo campo-ancho" id="campo-direccion">
+                    <label for="orden-direccion">Dirección de entrega en Valencia *</label>
+                    <input type="text" id="orden-direccion" autocomplete="street-address" maxlength="160" placeholder="Urbanización, calle, casa o edificio, punto de referencia">
+                    <span class="ayuda">El delivery solo está disponible en Valencia.</span>
+                </div>
+                <div class="campo campo-ancho" id="campo-pickup">
+                    <span class="ayuda">El punto y la hora de retiro se coordinan por WhatsApp.</span>
+                </div>
+                <div class="campo campo-ancho" id="campo-empresa">
+                    <label for="orden-empresa">Empresa de envío *</label>
+                    <select id="orden-empresa"></select>
+                </div>
+                <div class="campo campo-ancho" id="campo-oficina">
+                    <label for="orden-oficina">Dirección de la oficina más cercana a ti *</label>
+                    <input type="text" id="orden-oficina" autocomplete="off" maxlength="160" placeholder="Oficina, dirección, ciudad y estado">
+                    <span class="ayuda">Indica la oficina de la empresa de envío elegida donde retirarás tu pedido.</span>
+                </div>
+                <div class="campo campo-ancho">
+                    <label for="orden-notas">Notas (opcional)</label>
+                    <input type="text" id="orden-notas" maxlength="160">
+                </div>
+                <div class="nota-envio-form">
+                    <i class="fa-solid fa-truck-fast" aria-hidden="true"></i> <span data-envio-texto></span>
+                </div>
+            </form>
+
+            <div id="orden-doc" class="orden-doc"></div>
+
+            <div class="orden-acciones no-print">
+                <button type="button" id="orden-enviar" class="btn-checkout-wsp">
+                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Enviar orden por WhatsApp
+                </button>
+                <button type="button" id="orden-imprimir" class="btn-accion">
+                    <i class="fa-solid fa-print" aria-hidden="true"></i> Imprimir / Guardar PDF
+                </button>
+            </div>
+            <div class="no-print" style="text-align:center;">
+                <button type="button" id="orden-volver" class="btn-volver">&larr; Volver al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detalle de producto -->
+    <div id="modal-producto" class="modal modal-producto" role="dialog" aria-modal="true" aria-labelledby="producto-titulo">
+        <div class="modal-content">
+            <button type="button" class="btn-cerrar" data-cerrar="modal-producto" aria-label="Cerrar">&times;</button>
+            <div id="producto-detalle"></div>
+        </div>
+    </div>
+
+    <!-- Modal Confirmación de orden -->
+    <div id="modal-confirmacion" class="modal modal-confirmacion" role="dialog" aria-modal="true" aria-labelledby="confirmacion-titulo">
+        <div class="modal-content">
+            <button type="button" class="btn-cerrar" data-cerrar="modal-confirmacion" aria-label="Cerrar">&times;</button>
+            <div id="confirmacion-detalle"></div>
+        </div>
+    </div>
+
+    <!-- Barra del carrito (móvil) -->
+    <button type="button" id="barra-carrito" class="barra-carrito" aria-label="Ver carrito">
+        <span><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Ver carrito</span>
+        <span id="barra-texto"></span>
+    </button>
+
+    <!-- Aviso al añadir -->
+    <div id="toast" role="status" aria-live="polite"></div>
+
     <!-- Botón Flotante WhatsApp -->
-    <a href="https://wa.me/584121630808?text=Hola,%20quisiera%20ordenar%20una%20fixodent." 
-       class="wsp-float" 
-       target="_blank" 
+    <a href="https://wa.me/584121630808"
+       class="wsp-float js-wsp"
+       data-msg="Hola, quisiera ordenar una Fixodent."
+       target="_blank"
        rel="noopener noreferrer"
-       title="Contactar por WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
+       title="Contactar por WhatsApp"
+       aria-label="Contactar por WhatsApp">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
     </a>
 
     <!-- Pie de página -->
@@ -613,217 +1247,904 @@
         <p>&copy; 2026 TuProtesis - Todos los derechos reservados.</p>
     </footer>
 
-    <!-- JavaScript Integrado -->
     <script>
-        const PRECIO_USD = 17; 
-        let tasaBCVGlobal = 0;
-        
-        // Cargar carrito y asegurar que los precios antiguos en localStorage se sincronicen con PRECIO_USD
-        let carrito = JSON.parse(localStorage.getItem('carrito_tuprotesis')) || [];
-        carrito = carrito.map(item => ({ ...item, precio: PRECIO_USD }));
+    (function () {
+        'use strict';
 
-        // 1. Obtener Tasa BCV
-        async function actualizarPrecioBCV() {
+        /* ============ CONFIGURACIÓN ============ */
+        const WSP_NUMERO   = '584121630808';
+        const PRECIO_USD   = 17;   // precio normal por unidad (cremas)
+        const PRECIO_MAYOR = 15;   // precio por unidad de las cremas al llevar 2 o más (el polvo y las tabletas tienen el suyo)
+        const MIN_MAYOR    = 2;    // unidades mínimas para el precio por volumen
+
+        // EDITA esta lista con los métodos de pago que realmente aceptas
+        const METODOS_PAGO = [
+            'Pago móvil',
+            'Transferencia',
+            'Zelle',
+            'Efectivo (USD)',
+            'Efectivo (Bs.)',
+            'Lo coordino por WhatsApp'
+        ];
+
+        // Datos que verá el cliente DESPUÉS de enviar su orden. COMPLÉTALOS con los tuyos.
+        // Ejemplo: 'Pago móvil': 'Banco: ...\nTeléfono: ...\nCédula/RIF: ...'
+        // Si dejas un método vacío (''), el cliente verá "Te enviaremos los datos de pago por WhatsApp".
+        const DATOS_PAGO = {
+            'Pago móvil': '',
+            'Transferencia': '',
+            'Zelle': '',
+            'Efectivo (USD)': '',
+            'Efectivo (Bs.)': '',
+            'Lo coordino por WhatsApp': ''
+        };
+
+        // El envío es gratis cuando se llevan este número de unidades o más
+        const ENVIO_GRATIS_DESDE = 3;
+        const EMPRESAS_ENVIO = ['MRW', 'Zoom', 'Tealca'];
+
+        const NEGOCIO = {
+            nombre: 'TuProtesis',
+            whatsapp: '+58 412-1630808',
+            instagram: '@Tuprotesis_Val'
+        };
+
+        // Cada producto puede tener su propio "precio" y un "precioMayor" (precio por volumen).
+        // Si no se indican, se usan PRECIO_USD y PRECIO_MAYOR (ver más abajo).
+        // precioMayor: null = ese producto no tiene precio por volumen.
+        const PRODUCTOS = [
+            {
+                id: 'fix-orig',
+                agotado: false, // pon true si se agotó
+                nombre: 'Fixodent Original',
+                imagen: 'imagenes/1001848047.jpg',
+                etiqueta: 'El clásico de siempre',
+                descripcion: 'Fijación fuerte y duradera durante todo el día. Previene la entrada de restos de comida debajo de la prótesis.',
+                caracteristicas: [
+                    'Fijación fuerte durante todo el día con una sola aplicación diaria.',
+                    'Crea un sello que ayuda a evitar que restos de comida se metan debajo de la prótesis.',
+                    'Forma una capa amortiguadora entre la encía y la prótesis para mayor comodidad.',
+                    'Se adapta a la forma de tus encías para un ajuste personalizado.',
+                    'Para prótesis completas y parciales.'
+                ],
+                ideal: 'Quien busca una fijación confiable y cómoda para el uso diario.'
+            },
+            {
+                id: 'fix-max',
+                agotado: false, // pon true si se agotó
+                nombre: 'Fixodent Ultra Max Hold',
+                imagen: 'imagenes/1001848049.jpg',
+                etiqueta: 'Máxima fijación',
+                descripcion: 'Fórmula de fijación superior de máxima fuerza sostenida. Mantiene la sujeción firme hasta el final del día.',
+                caracteristicas: [
+                    'La fórmula de fijación de todo el día más fuerte de la línea Fixodent, según el fabricante.',
+                    'Mayor fijación que Fixodent Original, según el fabricante.',
+                    'Probada clínicamente en portadores de prótesis completas: mayor fijación que sin adhesivo.',
+                    'Sello que ayuda a evitar que la comida se acumule entre la prótesis y la encía.',
+                    'Se usa una vez al día. Para prótesis completas y parciales.'
+                ],
+                ideal: 'Quien quiere la máxima firmeza durante todo el día.'
+            },
+            {
+                id: 'fix-scope',
+                agotado: false, // pon true si se agotó
+                nombre: 'Fixodent Plus Scope',
+                imagen: 'imagenes/1001848043.jpg',
+                etiqueta: 'Fijación + aliento fresco',
+                descripcion: 'Excelente fijación combinada con el aliento fresco y el sabor limpio de la tecnología del enjuague Scope.',
+                caracteristicas: [
+                    'Fijación fuerte durante todo el día combinada con el sabor fresco de Scope.',
+                    'Tecnología Breath Bacteria Shield: ayuda a prevenir el mal aliento debajo de la prótesis, según el fabricante.',
+                    'Punta de precisión para aplicar una línea continua de crema justo donde la necesitas.',
+                    'Sello que ayuda a evitar que restos de comida se metan debajo de la prótesis.',
+                    'Para prótesis completas y parciales.'
+                ],
+                ideal: 'Quien busca buena fijación y quiere sentir el aliento fresco.'
+            },
+            {
+                id: 'fix-pure',
+                agotado: false, // pon true si se agotó
+                nombre: 'Fixodent Pure Strength',
+                imagen: 'imagenes/1001848053.jpg',
+                etiqueta: 'Fórmula limpia y natural',
+                descripcion: 'Fórmula libre de colorantes y sabores artificiales. Brinda una sujeción limpia, natural y confiable.',
+                caracteristicas: [
+                    'Fórmula con solo 5 ingredientes.',
+                    'Sin colorantes, sabores ni edulcorantes artificiales, y sin sulfatos.',
+                    'Fijación fuerte y duradera, comprobada clínicamente en portadores de prótesis completas.',
+                    'Incluye tecnología Breath Bacteria Shield, según el fabricante.',
+                    'Para prótesis completas y parciales.'
+                ],
+                ideal: 'Quien prefiere una fórmula sin sabores ni colorantes artificiales.'
+            },
+            {
+                id: 'fix-polvo',
+                agotado: false,
+                precio: 20,
+                precioMayor: 18,
+                sinInstructivo: true,
+                nombre: 'Fixodent Polvo Adhesivo Extra Hold',
+                imagen: 'imagenes/fixodent-polvo.jpg',
+                etiqueta: 'En polvo, fijación extra',
+                descripcion: 'Adhesivo en polvo para dentaduras postizas con fijación extra fuerte. Sello delgado y hermético que dura todo el día con una sola aplicación.',
+                caracteristicas: [
+                    'Fijación extra fuerte durante todo el día con una sola aplicación diaria.',
+                    'Forma un sello delgado y hermético que ayuda a evitar que la comida se meta debajo de la prótesis.',
+                    'Textura de polvo fino y sensación natural, sin residuo voluminoso.',
+                    'Fácil de aplicar: humedece la prótesis, esparce una capa fina y sacude el exceso (máximo 1/4 de cucharadita, según la etiqueta).',
+                    'Para prótesis completas y parciales.'
+                ],
+                ideal: 'Quien prefiere un adhesivo en polvo y busca fijación extra fuerte.'
+            },
+            {
+                id: 'polident-3min',
+                agotado: false,
+                precio: 25,
+                precioMayor: 23,
+                sinInstructivo: true,
+                nombre: 'Polident Tabletas Limpiadoras Antibacterianas 3 Minutos',
+                imagen: 'imagenes/polident-3min.jpg',
+                etiqueta: 'Limpieza profunda en 3 minutos',
+                descripcion: 'Tabletas limpiadoras antibacterianas para prótesis dentales. Limpieza profunda en pocos minutos, sin necesidad de remojo nocturno.',
+                caracteristicas: [
+                    'Remojo de solo 3 a 5 minutos para una limpieza profunda.',
+                    'Elimina el 99,9 % de las bacterias que causan mal olor, según pruebas de laboratorio del fabricante.',
+                    'Usado según las indicaciones, ayuda a reducir la placa y a remover manchas difíciles.',
+                    'Fórmula no abrasiva: limpia sin rayar el material de la prótesis.',
+                    'Modo de uso: una tableta en agua tibia (no caliente), remojar, cepillar con un cepillo suave y enjuagar bien.',
+                    'Para dentaduras completas y parciales.'
+                ],
+                ideal: 'Quien quiere mantener su prótesis limpia y fresca cada día, sin remojo nocturno.'
+            }
+        ];
+
+        // Las cremas (sin precio propio) usan el precio base y el precio por volumen
+        PRODUCTOS.forEach(p => {
+            if (p.precio === undefined) { p.precio = PRECIO_USD; p.precioMayor = PRECIO_MAYOR; }
+        });
+
+        /* ============ UTILIDADES ============ */
+        const $ = (id) => document.getElementById(id);
+
+        const track = (evento, datos) => {
+            try { if (typeof fbq === 'function') fbq('track', evento, datos); } catch (e) { /* sin pixel */ }
+        };
+
+        const store = {
+            get(clave) {
+                try { return JSON.parse(localStorage.getItem(clave)); } catch (e) { return null; }
+            },
+            set(clave, valor) {
+                try { localStorage.setItem(clave, JSON.stringify(valor)); } catch (e) { /* almacenamiento no disponible */ }
+            }
+        };
+
+        const wspUrl = (texto) =>
+            `https://wa.me/${WSP_NUMERO}` + (texto ? `?text=${encodeURIComponent(texto)}` : '');
+
+        const formatoBs = (n) =>
+            n.toLocaleString('es-VE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+        const esc = (s) => String(s).replace(/[&<>"']/g, (c) =>
+            ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+        /* ============ ESTADO ============ */
+        const idsValidos = new Set(PRODUCTOS.map(p => p.id));
+        let carrito = [];
+        const guardado = store.get('carrito_tuprotesis');
+        if (Array.isArray(guardado)) {
+            // Solo se conservan productos válidos y cantidades correctas
+            carrito = guardado
+                .filter(i => i && idsValidos.has(i.id) && Number.isInteger(i.cantidad) && i.cantidad > 0 && !PRODUCTOS.find(p => p.id === i.id).agotado)
+                .map(i => ({
+                    id: i.id,
+                    nombre: PRODUCTOS.find(p => p.id === i.id).nombre,
+                    cantidad: Math.min(i.cantidad, 99)
+                }));
+        }
+
+        let tasaBCV = 0;
+        let tasaFecha = '';
+        let tasaDesactualizada = false;
+        let ordenActual = null; // { numero, fecha } de la orden en curso
+        let ultimoEnlaceWsp = '';
+
+        const notaTasa = () => {
+            if (!tasaBCV) return '';
+            const partes = [];
+            if (tasaFecha) partes.push('Tasa del ' + tasaFecha);
+            if (tasaDesactualizada) partes.push('puede no estar actualizada');
+            return partes.length ? `(${partes.join(', ')})` : '';
+        };
+
+        /* ============ CÁLCULO DE TOTALES (un solo lugar) ============ */
+        function calcularTotales() {
+            const items = carrito.reduce((s, i) => s + i.cantidad, 0);
+            // Solo cuentan para el precio por volumen los productos que tienen precioMayor
+            const elegibles = carrito.reduce((s, i) =>
+                s + (PRODUCTOS.find(p => p.id === i.id).precioMayor ? i.cantidad : 0), 0);
+            const aplicaMayor = elegibles >= MIN_MAYOR;
+            const linea = {};
+            let subtotal = 0, total = 0;
+            carrito.forEach(i => {
+                const p = PRODUCTOS.find(x => x.id === i.id);
+                const unitario = (aplicaMayor && p.precioMayor) ? p.precioMayor : p.precio;
+                linea[i.id] = { unitario, total: i.cantidad * unitario };
+                subtotal += i.cantidad * p.precio;
+                total += i.cantidad * unitario;
+            });
+            const envioGratis = items >= ENVIO_GRATIS_DESDE;
+            const faltanEnvio = Math.max(0, ENVIO_GRATIS_DESDE - items);
+            return { items, elegibles, aplicaMayor, linea, subtotal, total, descuento: subtotal - total, envioGratis, faltanEnvio };
+        }
+
+        /* ============ CATÁLOGO ============ */
+        function renderCatalogo() {
+            $('catalogo').innerHTML = PRODUCTOS.map(p => {
+                const botones = p.agotado
+                    ? `<button type="button" class="btn-whatsapp-product" disabled>
+                            <i class="fa-solid fa-ban" aria-hidden="true"></i> Agotado
+                       </button>
+                       <a class="btn-detalle" href="${esc(wspUrl('Hola, ¿cuándo tendrán disponible ' + p.nombre + '?'))}" target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Consultar disponibilidad
+                       </a>`
+                    : `<button type="button" class="btn-whatsapp-product" data-agregar="${esc(p.id)}">
+                            <i class="fa-solid fa-cart-plus" aria-hidden="true"></i> Añadir al carrito
+                       </button>`;
+
+                const oferta = (p.agotado || !p.precioMayor) ? '' :
+                    `<p class="oferta-card"><i class="fa-solid fa-tag" aria-hidden="true"></i> Llévate ${MIN_MAYOR} o más a $${p.precioMayor} c/u</p>`;
+
+                return `
+                <article class="card${p.agotado ? ' agotado' : ''}">
+                    <img src="${esc(p.imagen)}" alt="${esc(p.nombre)}" loading="lazy">
+                    <div>
+                        <span class="badge">${esc(p.etiqueta)}</span>
+                        <h3>${esc(p.nombre)}</h3>
+                        <p class="product-description">${esc(p.descripcion)}</p>
+                        <p class="product-price" data-precio="${esc(p.id)}">$${p.precio} BCV</p>
+                        ${oferta}
+                    </div>
+                    <div class="card-botones">
+                        <button type="button" class="btn-detalle" data-detalle="${esc(p.id)}">
+                            <i class="fa-solid fa-circle-info" aria-hidden="true"></i> Ver calidad y detalles
+                        </button>
+                        ${botones}
+                    </div>
+                </article>`;
+            }).join('');
+        }
+
+        function renderPreciosCatalogo() {
+            document.querySelectorAll('[data-precio]').forEach(el => {
+                const p = PRODUCTOS.find(x => x.id === el.dataset.precio);
+                if (!p) return;
+                const bs = tasaBCV > 0 ? `<br><small>(Bs. ${formatoBs(p.precio * tasaBCV)})</small>` : '';
+                el.innerHTML = `$${p.precio} BCV${bs}`;
+            });
+            $('nota-precio').textContent =
+                'Precio en dólares, pagadero en bolívares a la tasa BCV del día.' + (notaTasa() ? ' ' + notaTasa() : '');
+        }
+
+        /* ============ TASA BCV (con respaldo en caché) ============ */
+        async function cargarTasaBCV() {
+            const cache = store.get('tasa_bcv');
+            if (cache && cache.valor > 0) {
+                tasaBCV = cache.valor;
+                tasaFecha = cache.fecha || '';
+                renderPreciosCatalogo();
+                actualizarCarrito();
+            }
+
             try {
-                const response = await fetch('https://ve.dolarapi.com/v1/dolares/oficial');
-                if (!response.ok) throw new Error('Respuesta de red no ok');
-                
-                const data = await response.json();
-                tasaBCVGlobal = data.promedio;
+                const resp = await fetch('https://ve.dolarapi.com/v1/dolares/oficial');
+                if (!resp.ok) throw new Error('Respuesta de red no ok');
+                const data = await resp.json();
+                const valor = Number(data.promedio);
+                if (!(valor > 0)) throw new Error('Tasa inválida');
 
-                const precioBs = (PRECIO_USD * tasaBCVGlobal).toLocaleString('es-VE', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                });
+                let fecha = '';
+                if (data.fechaActualizacion) {
+                    const d = new Date(data.fechaActualizacion);
+                    if (!isNaN(d)) fecha = d.toLocaleDateString('es-VE');
+                }
 
-                document.querySelectorAll('.product-price').forEach(el => {
-                    el.innerHTML = `$${PRECIO_USD} BCV <br><small style="font-size: 0.85em; font-weight: normal; color: #555;">(Bs. ${precioBs})</small>`;
-                });
+                tasaBCV = valor;
+                tasaFecha = fecha;
+                tasaDesactualizada = false;
+                store.set('tasa_bcv', { valor, fecha });
             } catch (error) {
                 console.error('Error al obtener la tasa oficial:', error);
-                document.querySelectorAll('.product-price').forEach(el => {
-                    el.textContent = `$${PRECIO_USD} BCV`;
-                });
+                if (tasaBCV > 0) {
+                    tasaDesactualizada = true;
+                }
             }
+
+            renderPreciosCatalogo();
             actualizarCarrito();
         }
 
-        // 2. Control del Carrito y Lógica del Descuento
-        const modalCarrito = document.getElementById('modal-carrito');
-        const listaCarrito = document.getElementById('lista-carrito');
-        const contadorCarrito = document.getElementById('contador-carrito');
-        const totalUsdElem = document.getElementById('total-usd');
-        const totalBsElem = document.getElementById('total-bs-container');
-        const descuentoBox = document.getElementById('descuento-box');
-        const subtotalLine = document.getElementById('subtotal-line');
-        const descuentoLine = document.getElementById('descuento-line');
+        /* ============ CARRITO ============ */
+        function agregarProducto(id) {
+            const producto = PRODUCTOS.find(p => p.id === id);
+            if (!producto) return;
+            if (producto.agotado) { mostrarToast('Producto agotado'); return; }
 
-        document.querySelectorAll('.btn-agregar-carrito').forEach(boton => {
-            boton.addEventListener('click', (e) => {
-                const card = e.target.closest('.card');
-                const id = card.getAttribute('data-id');
-                const nombre = card.getAttribute('data-nombre');
-
-                agregarProducto(id, nombre);
-            });
-        });
-
-        function agregarProducto(id, nombre) {
-            const existe = carrito.find(item => item.id === id);
-
+            const existe = carrito.find(i => i.id === id);
             if (existe) {
-                existe.cantidad += 1;
-                existe.precio = PRECIO_USD;
+                if (existe.cantidad < 99) existe.cantidad += 1;
             } else {
-                carrito.push({ id, nombre, precio: PRECIO_USD, cantidad: 1 });
+                carrito.push({ id, nombre: producto.nombre, cantidad: 1 });
             }
 
+            track('AddToCart', {
+                content_name: producto.nombre,
+                content_ids: [id],
+                content_type: 'product',
+                value: producto.precio,
+                currency: 'USD'
+            });
+
             actualizarCarrito();
-            modalCarrito.style.display = 'flex';
+            mostrarToast(`Añadido ✓ ${producto.nombre}`);
         }
 
         function cambiarCantidad(id, cambio) {
-            const producto = carrito.find(item => item.id === id);
-            if (producto) {
-                producto.cantidad += cambio;
-                if (producto.cantidad <= 0) {
-                    eliminarProducto(id);
-                    return;
-                }
+            const item = carrito.find(i => i.id === id);
+            if (!item) return;
+            item.cantidad += cambio;
+            if (item.cantidad <= 0) {
+                eliminarProducto(id);
+                return;
             }
+            if (item.cantidad > 99) item.cantidad = 99;
             actualizarCarrito();
         }
 
         function eliminarProducto(id) {
-            carrito = carrito.filter(item => item.id !== id);
+            carrito = carrito.filter(i => i.id !== id);
             actualizarCarrito();
         }
 
         function actualizarCarrito() {
-            listaCarrito.innerHTML = '';
-            let subtotalUsd = 0;
-            let totalItems = 0;
+            const lista = $('lista-carrito');
+            const t = calcularTotales();
 
             if (carrito.length === 0) {
-                listaCarrito.innerHTML = '<p style="color: #777; text-align: center;">El carrito está vacío</p>';
+                lista.innerHTML = '<p style="color:#777;text-align:center;">El carrito está vacío</p>';
             } else {
-                carrito.forEach(item => {
-                    item.precio = PRECIO_USD; // Forzar precio constante de referencia
-                    const subtotalItem = item.precio * item.cantidad;
-                    subtotalUsd += subtotalItem;
-                    totalItems += item.cantidad;
-
-                    const div = document.createElement('div');
-                    div.classList.add('item-carrito');
-                    div.innerHTML = `
-                        <div>
-                            <strong>${item.nombre}</strong><br>
-                            <small>$${item.precio} c/u</small>
+                lista.innerHTML = carrito.map(item => `
+                    <div class="item-carrito">
+                        <div class="info">
+                            <strong>${esc(item.nombre)}</strong><br>
+                            <small>$${t.linea[item.id].unitario} c/u</small>
                         </div>
                         <div class="controles-cantidad">
-                            <button class="btn-qty" onclick="cambiarCantidad('${item.id}', -1)">-</button>
+                            <button type="button" class="btn-qty" data-accion="menos" data-id="${esc(item.id)}" aria-label="Quitar una unidad">-</button>
                             <span>${item.cantidad}</span>
-                            <button class="btn-qty" onclick="cambiarCantidad('${item.id}', 1)">+</button>
+                            <button type="button" class="btn-qty" data-accion="mas" data-id="${esc(item.id)}" aria-label="Añadir una unidad">+</button>
                         </div>
-                        <span>$${subtotalItem}</span>
-                        <button class="btn-eliminar" onclick="eliminarProducto('${item.id}')">&times;</button>
-                    `;
-                    listaCarrito.appendChild(div);
-                });
+                        <span>$${t.linea[item.id].total}</span>
+                        <button type="button" class="btn-eliminar" data-accion="eliminar" data-id="${esc(item.id)}" aria-label="Eliminar ${esc(item.nombre)}">&times;</button>
+                    </div>
+                `).join('');
             }
 
-            // Aplicar 11% de descuento si lleva 2 o más unidades
-            let descuentoUsd = 0;
-            if (totalItems >= 2) {
-                descuentoUsd = subtotalUsd * 0.1177;
-                descuentoBox.style.display = 'block';
-                subtotalLine.textContent = `Subtotal: $${subtotalUsd.toFixed(2)}`;
-                descuentoLine.textContent = `Descuento (11%): -$${descuentoUsd.toFixed(2)}`;
+            // Mensajes de oferta
+            $('descuento-box').style.display = t.aplicaMayor ? 'block' : 'none';
+            $('aviso-oferta').style.display = (t.elegibles === 1) ? 'block' : 'none';
+
+            const avisoEnvio = $('aviso-envio');
+            if (t.items === 0) {
+                avisoEnvio.style.display = 'none';
             } else {
-                descuentoBox.style.display = 'none';
-                subtotalLine.textContent = '';
-                descuentoLine.textContent = '';
+                avisoEnvio.style.display = 'block';
+                avisoEnvio.innerHTML = t.envioGratis
+                    ? '<i class="fa-solid fa-truck-fast" aria-hidden="true"></i> ¡Envío gratis aplicado!'
+                    : `<i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Añade ${t.faltanEnvio} unidad${t.faltanEnvio === 1 ? '' : 'es'} más y el envío es gratis.`;
             }
 
-            const totalFinalUsd = subtotalUsd - descuentoUsd;
-
-            totalUsdElem.textContent = totalFinalUsd.toFixed(2);
-            contadorCarrito.textContent = totalItems;
-
-            if (tasaBCVGlobal > 0 && totalFinalUsd > 0) {
-                const totalBs = (totalFinalUsd * tasaBCVGlobal).toLocaleString('es-VE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                totalBsElem.innerHTML = `Equivalente BCV: <strong>Bs. ${totalBs}</strong>`;
+            if (t.aplicaMayor) {
+                $('subtotal-line').textContent = `Subtotal: $${t.subtotal.toFixed(2)}`;
+                $('descuento-line').textContent = `Ahorro por volumen: -$${t.descuento.toFixed(2)}`;
             } else {
-                totalBsElem.innerHTML = '';
+                $('subtotal-line').textContent = '';
+                $('descuento-line').textContent = '';
             }
 
-            localStorage.setItem('carrito_tuprotesis', JSON.stringify(carrito));
+            $('total-usd').textContent = t.total.toFixed(2);
+            $('contador-carrito').textContent = t.items;
+            $('generar-orden').disabled = t.items === 0;
+
+            const hayItems = t.items > 0;
+            $('barra-carrito').classList.toggle('visible', hayItems);
+            document.body.classList.toggle('con-barra', hayItems);
+            $('barra-texto').textContent = `${t.items} unidad${t.items === 1 ? '' : 'es'} · $${t.total.toFixed(2)}`;
+
+            if (tasaBCV > 0 && t.total > 0) {
+                $('total-bs-container').innerHTML =
+                    `Equivalente BCV: <strong>Bs. ${formatoBs(t.total * tasaBCV)}</strong> <small>${esc(notaTasa())}</small>`;
+            } else {
+                $('total-bs-container').innerHTML = '';
+            }
+
+            store.set('carrito_tuprotesis', carrito);
         }
 
-        // 3. Envío del Pedido con Descuento por WhatsApp
-        document.getElementById('checkout-whatsapp').addEventListener('click', () => {
+        /* ============ ORDEN DE COMPRA ============ */
+        function generarNumeroOrden(fecha) {
+            const y = String(fecha.getFullYear()).slice(2);
+            const m = String(fecha.getMonth() + 1).padStart(2, '0');
+            const d = String(fecha.getDate()).padStart(2, '0');
+            const azar = Math.random().toString(36).slice(2, 6).toUpperCase().padEnd(4, '0');
+            return `TP-${y}${m}${d}-${azar}`;
+        }
+
+        function formatoFecha(f) {
+            return f.toLocaleString('es-VE', { dateStyle: 'medium', timeStyle: 'short' });
+        }
+
+        function datosOrden() {
+            return {
+                nombre: $('orden-nombre').value.trim(),
+                cedulaTipo: $('orden-cedula-tipo').value,
+                cedula: $('orden-cedula').value.replace(/\D/g, ''),
+                telefono: $('orden-telefono').value.trim(),
+                tipo: $('orden-tipo').value,
+                direccion: $('orden-direccion').value.trim(),
+                empresa: $('orden-empresa').value,
+                oficina: $('orden-oficina').value.trim(),
+                pago: $('orden-pago').value,
+                notas: $('orden-notas').value.trim()
+            };
+        }
+
+        const cedulaTexto = (o) => o.cedula ? `${o.cedulaTipo}-${o.cedula}` : '—';
+
+        const entregaTexto = (o) => {
+            if (o.tipo === 'delivery') return `Delivery en Valencia — ${o.direccion || '—'}`;
+            if (o.tipo === 'pickup') return 'Pick up (retiro personal, se coordina por WhatsApp)';
+            return `Envío a nivel nacional por ${o.empresa}`;
+        };
+
+        const envioTexto = (o, t) => {
+            if (o.tipo === 'pickup') return 'No aplica (pick up)';
+            return t.envioGratis ? 'GRATIS' : 'a coordinar por WhatsApp';
+        };
+
+        function actualizarCamposEntrega() {
+            const tipo = $('orden-tipo').value;
+            $('campo-direccion').style.display = tipo === 'delivery' ? '' : 'none';
+            $('campo-pickup').style.display = tipo === 'pickup' ? '' : 'none';
+            $('campo-empresa').style.display = tipo === 'nacional' ? '' : 'none';
+            $('campo-oficina').style.display = tipo === 'nacional' ? '' : 'none';
+        }
+
+        function renderOrden() {
+            actualizarCamposEntrega();
+            if (!ordenActual) return;
+            const t = calcularTotales();
+            const o = datosOrden();
+
+            const filas = carrito.map(i => `
+                <tr>
+                    <td>${esc(i.nombre)}</td>
+                    <td class="num">${i.cantidad}</td>
+                    <td class="num">$${t.linea[i.id].unitario.toFixed(2)}</td>
+                    <td class="num">$${t.linea[i.id].total.toFixed(2)}</td>
+                </tr>`).join('');
+
+            let totales = '';
+            if (t.aplicaMayor) {
+                totales += `<p>Subtotal: $${t.subtotal.toFixed(2)}</p>`;
+                totales += `<p class="orden-ahorro">Precio por volumen (${MIN_MAYOR}+ uds): -$${t.descuento.toFixed(2)}</p>`;
+            }
+            totales += `<p class="${(o.tipo !== 'pickup' && t.envioGratis) ? 'orden-ahorro' : ''}">Envío: ${esc(envioTexto(o, t))}</p>`;
+            totales += `<p class="orden-total">Total: $${t.total.toFixed(2)} USD</p>`;
+            if (tasaBCV > 0) {
+                totales += `<p>Equivalente BCV: <strong>Bs. ${formatoBs(t.total * tasaBCV)}</strong> <small>${esc(notaTasa())}</small></p>`;
+            }
+
+            $('orden-doc').innerHTML = `
+                <div class="orden-head">
+                    <div>
+                        <h4>${esc(NEGOCIO.nombre)}</h4>
+                        <small>WhatsApp: ${esc(NEGOCIO.whatsapp)} · Instagram: ${esc(NEGOCIO.instagram)}</small>
+                    </div>
+                    <div class="orden-meta">
+                        <strong>ORDEN DE COMPRA</strong><br>
+                        N.º ${esc(ordenActual.numero)}<br>
+                        <small>${esc(formatoFecha(ordenActual.fecha))}</small>
+                    </div>
+                </div>
+
+                <div class="orden-cliente">
+                    <p><strong>Cliente:</strong> ${esc(o.nombre || '—')}</p>
+                    <p><strong>Cédula:</strong> ${esc(cedulaTexto(o))}</p>
+                    ${o.telefono ? `<p><strong>Teléfono:</strong> ${esc(o.telefono)}</p>` : ''}
+                    <p><strong>Entrega:</strong> ${esc(entregaTexto(o))}</p>
+                    ${o.tipo === 'nacional' ? `<p><strong>Oficina de destino:</strong> ${esc(o.oficina || '—')}</p>` : ''}
+                    <p><strong>Método de pago:</strong> ${esc(o.pago)}</p>
+                    ${o.notas ? `<p><strong>Notas:</strong> ${esc(o.notas)}</p>` : ''}
+                </div>
+
+                <table class="orden-tabla">
+                    <thead>
+                        <tr><th>Producto</th><th class="num">Cant.</th><th class="num">Precio</th><th class="num">Total</th></tr>
+                    </thead>
+                    <tbody>${filas}</tbody>
+                </table>
+
+                <div class="orden-totales">${totales}</div>
+
+                <p class="orden-legal">
+                    Los montos en bolívares son referenciales y se calculan con la tasa BCV vigente al momento del pago.
+                    Envío gratis en compras de ${ENVIO_GRATIS_DESDE} o más unidades. Disponibilidad y envío sujetos a confirmación. Este documento es una orden de compra y no constituye factura fiscal.
+                </p>`;
+        }
+
+        function abrirOrden() {
             if (carrito.length === 0) {
-                alert('Tu carrito está vacío');
+                mostrarToast('Tu carrito está vacío');
                 return;
             }
+            if (!ordenActual) {
+                const f = new Date();
+                ordenActual = { fecha: f, numero: generarNumeroOrden(f) };
+            }
 
-            let mensaje = "¡Hola! Quisiera realizar el siguiente pedido:\n\n";
-            let subtotal = 0;
-            let totalItems = 0;
-
-            carrito.forEach(item => {
-                const subtotalItem = item.precio * item.cantidad;
-                subtotal += subtotalItem;
-                totalItems += item.cantidad;
-                mensaje += `• *${item.nombre}* x${item.cantidad} - $${subtotalItem}\n`;
+            const t = calcularTotales();
+            track('InitiateCheckout', {
+                value: t.total,
+                currency: 'USD',
+                num_items: t.items,
+                content_ids: carrito.map(i => i.id),
+                content_type: 'product'
             });
 
-            mensaje += `\n*Subtotal:* $${subtotal}`;
+            renderOrden();
+            cerrarModal('modal-carrito');
+            abrirModal('modal-orden');
+        }
 
-            let totalFinal = subtotal;
-            if (totalItems >= 2) {
-                const descuento = subtotal * 0.1177;
-                totalFinal = subtotal - descuento;
-                mensaje += `\n*Descuento (11% por 2+ uds):* -$${descuento.toFixed(2)}`;
+        function validarOrden() {
+            const o = datosOrden();
+            if (carrito.length === 0) {
+                mostrarToast('Tu carrito está vacío');
+                return false;
+            }
+            if (!o.nombre) {
+                mostrarToast('Escribe tu nombre');
+                $('orden-nombre').focus();
+                return false;
+            }
+            if (!/^\d{6,9}$/.test(o.cedula)) {
+                mostrarToast('Escribe una cédula válida (solo números)');
+                $('orden-cedula').focus();
+                return false;
+            }
+            if (o.tipo === 'delivery' && !o.direccion) {
+                mostrarToast('Indica la dirección de entrega en Valencia');
+                $('orden-direccion').focus();
+                return false;
+            }
+            if (o.tipo === 'nacional' && !o.oficina) {
+                mostrarToast('Indica la dirección de la oficina más cercana');
+                $('orden-oficina').focus();
+                return false;
+            }
+            return true;
+        }
+
+        function guardarCliente() {
+            // La cédula no se guarda en el dispositivo
+            const o = datosOrden();
+            store.set('cliente_tuprotesis', {
+                nombre: o.nombre,
+                telefono: o.telefono,
+                tipo: o.tipo,
+                direccion: o.direccion,
+                oficina: o.oficina,
+                empresa: o.empresa
+            });
+        }
+
+        function construirMensaje() {
+            const t = calcularTotales();
+            const o = datosOrden();
+
+            let msg = `*ORDEN DE COMPRA N.º ${ordenActual.numero}*\n${formatoFecha(ordenActual.fecha)}\n\n`;
+            carrito.forEach(i => {
+                msg += `• *${i.nombre}* x${i.cantidad} - $${t.linea[i.id].total.toFixed(2)}\n`;
+            });
+
+            if (t.aplicaMayor) {
+                msg += `\n*Subtotal:* $${t.subtotal.toFixed(2)}`;
+                msg += `\n*Precio por volumen (${MIN_MAYOR}+ uds):* -$${t.descuento.toFixed(2)}`;
+            }
+            msg += `\n*Total a pagar:* $${t.total.toFixed(2)} USD`;
+            if (tasaBCV > 0) {
+                msg += `\n*Total estimado BCV:* Bs. ${formatoBs(t.total * tasaBCV)}`;
             }
 
-            mensaje += `\n*Total a pagar:* $${totalFinal.toFixed(2)} USD`;
+            msg += `\n*Envío:* ${envioTexto(o, t)}`;
 
-            if (tasaBCVGlobal > 0) {
-                const totalBs = (totalFinal * tasaBCVGlobal).toLocaleString('es-VE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                mensaje += `\n*Total Estimado BCV:* Bs. ${totalBs}`;
+            msg += `\n\n*Cliente:* ${o.nombre}`;
+            msg += `\n*Cédula:* ${cedulaTexto(o)}`;
+            if (o.telefono) msg += `\n*Teléfono:* ${o.telefono}`;
+            msg += `\n*Entrega:* ${entregaTexto(o)}`;
+            if (o.tipo === 'nacional') msg += `\n*Oficina de destino:* ${o.oficina}`;
+            msg += `\n*Método de pago:* ${o.pago}`;
+            if (o.notas) msg += `\n*Notas:* ${o.notas}`;
+            return msg;
+        }
+
+        function enviarOrden() {
+            if (!validarOrden()) return;
+            guardarCliente();
+
+            const t = calcularTotales();
+            track('Lead', {
+                value: t.total,
+                currency: 'USD',
+                num_items: t.items,
+                content_ids: carrito.map(i => i.id),
+                content_type: 'product'
+            });
+
+            const o = datosOrden();
+            ultimoEnlaceWsp = wspUrl(construirMensaje());
+            window.open(ultimoEnlaceWsp, '_blank', 'noopener');
+            mostrarConfirmacion(o, t);
+        }
+
+        function imprimirOrden() {
+            if (!validarOrden()) return;
+            guardarCliente();
+
+            const tituloOriginal = document.title;
+            document.title = `Orden ${ordenActual.numero} - ${NEGOCIO.nombre}`;
+            document.body.classList.add('imprimiendo-orden');
+
+            window.addEventListener('afterprint', () => {
+                document.body.classList.remove('imprimiendo-orden');
+                document.title = tituloOriginal;
+            }, { once: true });
+
+            window.print();
+        }
+
+        /* ============ MODALES ============ */
+        let ultimoFoco = null;
+
+        function abrirModal(id) {
+            ultimoFoco = document.activeElement;
+            const m = $(id);
+            m.classList.add('abierto');
+            document.body.style.overflow = 'hidden';
+            const cerrar = m.querySelector('.btn-cerrar');
+            if (cerrar) cerrar.focus();
+        }
+
+        function liberarPantalla() {
+            if (!document.querySelector('.modal.abierto')) {
+                document.body.style.overflow = '';
+                if (ultimoFoco && typeof ultimoFoco.focus === 'function') ultimoFoco.focus();
             }
+        }
 
-            const url = `https://wa.me/584121630808?text=${encodeURIComponent(mensaje)}`;
-            window.open(url, '_blank');
+        function cerrarModal(id) {
+            $(id).classList.remove('abierto');
+            liberarPantalla();
+        }
+
+        function cerrarTodos() {
+            document.querySelectorAll('.modal.abierto').forEach(m => m.classList.remove('abierto'));
+            liberarPantalla();
+        }
+
+        /* ============ CONFIRMACIÓN DE ORDEN ============ */
+        function mostrarConfirmacion(o, t) {
+            const datos = (DATOS_PAGO[o.pago] || '').trim();
+            const bs = tasaBCV > 0 ? ` <small>(≈ Bs. ${formatoBs(t.total * tasaBCV)})</small>` : '';
+
+            const bloquePago = datos
+                ? `<h4>Cómo pagar: ${esc(o.pago)}</h4>
+                   <div class="datos-pago" id="datos-pago-texto">${esc(datos)}</div>
+                   <button type="button" class="btn-detalle" data-copiar-pago>
+                       <i class="fa-solid fa-copy" aria-hidden="true"></i> Copiar datos de pago
+                   </button>`
+                : `<h4>Pago: ${esc(o.pago)}</h4>
+                   <p class="datos-pago">Te enviaremos los datos de pago por WhatsApp.</p>`;
+
+            $('confirmacion-detalle').innerHTML = `
+                <div class="confirm-icono"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></div>
+                <h3 id="confirmacion-titulo">¡Orden enviada!</h3>
+                <p>N.º <strong>${esc(ordenActual.numero)}</strong></p>
+                <p class="confirm-total">Total: <strong>$${t.total.toFixed(2)} USD</strong>${bs}</p>
+                ${bloquePago}
+                <p class="ayuda-confirm">Cuando hagas el pago, envía el comprobante por WhatsApp.</p>
+                <div class="confirm-acciones">
+                    <button type="button" class="btn-checkout-wsp" data-reabrir-wsp>
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> ¿No se abrió WhatsApp? Toca aquí
+                    </button>
+                    <button type="button" class="btn-detalle" data-finalizar>Finalizar y vaciar carrito</button>
+                </div>`;
+
+            cerrarModal('modal-orden');
+            abrirModal('modal-confirmacion');
+        }
+
+        /* ============ DETALLE DE PRODUCTO ============ */
+        function abrirDetalle(id) {
+            const p = PRODUCTOS.find(x => x.id === id);
+            if (!p) return;
+
+            track('ViewContent', {
+                content_name: p.nombre,
+                content_ids: [p.id],
+                content_type: 'product',
+                value: p.precio,
+                currency: 'USD'
+            });
+
+            const items = p.caracteristicas.map(c =>
+                `<li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>${esc(c)}</span></li>`
+            ).join('');
+
+            $('producto-detalle').innerHTML = `
+                <img src="${esc(p.imagen)}" alt="${esc(p.nombre)}">
+                <span class="badge">${esc(p.etiqueta)}</span>
+                <h3 id="producto-titulo">${esc(p.nombre)}</h3>
+                <p class="product-description">${esc(p.descripcion)}</p>
+
+                <h4>Calidad y características</h4>
+                <ul class="lista-calidad">${items}</ul>
+
+                <h4>Ideal para</h4>
+                <p class="ideal">${esc(p.ideal)}</p>
+
+                <p class="nota-legal">Características según la información del fabricante. Lee siempre la etiqueta y las instrucciones del empaque de tu producto.</p>
+
+                <div class="modal-producto-acciones">
+                    ${p.agotado
+                        ? '<button type="button" class="btn-whatsapp-product" disabled>Agotado</button>'
+                        : `<button type="button" class="btn-whatsapp-product" data-agregar-detalle="${esc(p.id)}"><i class="fa-solid fa-cart-plus" aria-hidden="true"></i> Añadir al carrito</button>`}
+                    ${p.sinInstructivo ? '' : `<button type="button" class="btn-detalle" data-ir-instructivo>
+                        <i class="fa-solid fa-book-open" aria-hidden="true"></i> ¿Cómo se aplica?
+                    </button>`}
+                </div>`;
+
+            abrirModal('modal-producto');
+        }
+
+        /* ============ AVISO (TOAST) ============ */
+        let toastTimer;
+        function mostrarToast(texto) {
+            const el = $('toast');
+            el.textContent = texto;
+            el.classList.add('visible');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => el.classList.remove('visible'), 1800);
+        }
+
+        /* ============ EVENTOS ============ */
+        // Añadir al carrito (delegación)
+        $('catalogo').addEventListener('click', (e) => {
+            const det = e.target.closest('[data-detalle]');
+            if (det) { abrirDetalle(det.dataset.detalle); return; }
+            const btn = e.target.closest('[data-agregar]');
+            if (btn) agregarProducto(btn.dataset.agregar);
         });
 
-        // Modales
-        const modalContacto = document.getElementById('modal-contacto');
-        const btnContacto = document.getElementById('btn-contacto');
-        const cerrarModal = document.querySelector('.close-modal');
-        const abrirCarritoBtn = document.getElementById('abrir-carrito');
-        const cerrarCarritoBtn = document.getElementById('cerrar-carrito');
-        const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
-
-        btnContacto.addEventListener('click', () => modalContacto.style.display = 'flex');
-        cerrarModal.addEventListener('click', () => modalContacto.style.display = 'none');
-        
-        abrirCarritoBtn.addEventListener('click', () => modalCarrito.style.display = 'flex');
-        cerrarCarritoBtn.addEventListener('click', () => modalCarrito.style.display = 'none');
-
-        vaciarCarritoBtn.addEventListener('click', () => {
-            carrito = [];
-            actualizarCarrito();
+        // Acciones dentro del detalle de producto
+        $('producto-detalle').addEventListener('click', (e) => {
+            const add = e.target.closest('[data-agregar-detalle]');
+            if (add) {
+                cerrarModal('modal-producto');
+                agregarProducto(add.dataset.agregarDetalle);
+                return;
+            }
+            if (e.target.closest('[data-ir-instructivo]')) {
+                cerrarModal('modal-producto');
+                $('instructivo').scrollIntoView({ behavior: 'smooth' });
+            }
         });
 
-        window.addEventListener('click', (e) => {
-            if (e.target === modalContacto) modalContacto.style.display = 'none';
-            if (e.target === modalCarrito) modalCarrito.style.display = 'none';
+        // Acciones de la pantalla de confirmación
+        $('confirmacion-detalle').addEventListener('click', async (e) => {
+            if (e.target.closest('[data-copiar-pago]')) {
+                try {
+                    await navigator.clipboard.writeText($('datos-pago-texto').textContent);
+                    mostrarToast('Datos copiados ✓');
+                } catch (err) {
+                    mostrarToast('No se pudo copiar');
+                }
+                return;
+            }
+            if (e.target.closest('[data-reabrir-wsp]')) {
+                window.open(ultimoEnlaceWsp, '_blank', 'noopener');
+                return;
+            }
+            if (e.target.closest('[data-finalizar]')) {
+                carrito = [];
+                ordenActual = null;
+                actualizarCarrito();
+                cerrarModal('modal-confirmacion');
+            }
         });
 
-        // Inicializar
-        actualizarPrecioBCV();
+        // Controles del carrito (delegación)
+        $('lista-carrito').addEventListener('click', (e) => {
+            const btn = e.target.closest('[data-accion]');
+            if (!btn) return;
+            const id = btn.dataset.id;
+            if (btn.dataset.accion === 'mas') cambiarCantidad(id, 1);
+            if (btn.dataset.accion === 'menos') cambiarCantidad(id, -1);
+            if (btn.dataset.accion === 'eliminar') eliminarProducto(id);
+        });
+
+        $('generar-orden').addEventListener('click', abrirOrden);
+        $('orden-enviar').addEventListener('click', enviarOrden);
+        $('orden-imprimir').addEventListener('click', imprimirOrden);
+        $('orden-volver').addEventListener('click', () => {
+            cerrarModal('modal-orden');
+            abrirModal('modal-carrito');
+        });
+
+        // La vista previa de la orden se actualiza mientras se escribe
+        const formOrden = $('form-orden');
+        formOrden.addEventListener('input', renderOrden);
+        formOrden.addEventListener('change', renderOrden);
+        formOrden.addEventListener('submit', (e) => e.preventDefault());
+        $('vaciar-carrito').addEventListener('click', () => { carrito = []; ordenActual = null; actualizarCarrito(); });
+
+        $('abrir-carrito').addEventListener('click', () => abrirModal('modal-carrito'));
+        $('barra-carrito').addEventListener('click', () => abrirModal('modal-carrito'));
+        $('btn-contacto').addEventListener('click', () => abrirModal('modal-contacto'));
+
+        document.querySelectorAll('[data-cerrar]').forEach(b =>
+            b.addEventListener('click', () => cerrarModal(b.dataset.cerrar)));
+
+        // Cerrar al hacer clic fuera del contenido
+        document.querySelectorAll('.modal').forEach(m =>
+            m.addEventListener('click', (e) => { if (e.target === m) cerrarModal(m.id); }));
+
+        // Cerrar con Esc
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') cerrarTodos(); });
+
+        // Enlaces de WhatsApp con texto codificado + evento Contact del Pixel
+        document.querySelectorAll('.js-wsp').forEach(a => {
+            a.href = wspUrl(a.dataset.msg || '');
+            a.addEventListener('click', () => track('Contact'));
+        });
+
+        /* ============ INICIO ============ */
+        $('orden-pago').innerHTML = METODOS_PAGO.map(m => `<option>${esc(m)}</option>`).join('');
+
+        // Recordar los datos del cliente en este dispositivo (solo en su navegador)
+        $('orden-empresa').innerHTML = EMPRESAS_ENVIO.map(e => `<option>${esc(e)}</option>`).join('');
+        document.querySelectorAll('[data-envio-texto]').forEach(el => {
+            el.textContent = `Envío gratis en compras de ${ENVIO_GRATIS_DESDE} o más unidades.`;
+        });
+
+        const clienteGuardado = store.get('cliente_tuprotesis');
+        if (clienteGuardado && typeof clienteGuardado === 'object') {
+            $('orden-nombre').value = String(clienteGuardado.nombre || '').slice(0, 60);
+            $('orden-telefono').value = String(clienteGuardado.telefono || '').slice(0, 20);
+            $('orden-oficina').value = String(clienteGuardado.oficina || '').slice(0, 160);
+            if (EMPRESAS_ENVIO.includes(clienteGuardado.empresa)) $('orden-empresa').value = clienteGuardado.empresa;
+            $('orden-direccion').value = String(clienteGuardado.direccion || '').slice(0, 160);
+            if (['delivery', 'pickup', 'nacional'].includes(clienteGuardado.tipo)) $('orden-tipo').value = clienteGuardado.tipo;
+        }
+
+        actualizarCamposEntrega();
+
+        renderCatalogo();
+        renderPreciosCatalogo();
+        actualizarCarrito();
+        cargarTasaBCV();
+    })();
     </script>
 </body>
 </html>
